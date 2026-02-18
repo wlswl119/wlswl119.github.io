@@ -3,167 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Name</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.0/lucide.min.js"></script>
+    <title>My Portfolio | Minimalist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #ffffff;
-            --text: #1a1a1a;
-            --secondary: #666666;
-            --accent: #0070f3;
-            --border: #eaeaea;
+            --bg-color: #ffffff;
+            --text-main: #1a1a1a;
+            --text-sub: #666666;
+            --accent: #0070f3; /* 모던한 블루 포인트 */
+            --gray-light: #f5f5f7;
+            --transition: all 0.3s ease;
         }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #0a0a0a;
-                --text: #f5f5f5;
-                --secondary: #a0a0a0;
-                --accent: #3291ff;
-                --border: #333333;
-            }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background-color: var(--bg); 
-            color: var(--text); 
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             line-height: 1.6;
             scroll-behavior: smooth;
         }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
-
         /* Navigation */
         nav {
-            position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--border);
-            z-index: 100; padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
         }
-        nav .container { display: flex; justify-content: space-between; align-items: center; }
-        nav a { text-decoration: none; color: var(--text); font-weight: 500; margin-left: 1.5rem; font-size: 0.9rem; }
-        nav a:hover { color: var(--accent); }
 
-        /* Sections */
-        section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
-        h2 { font-size: 1.5rem; margin-bottom: 2rem; font-weight: 700; letter-spacing: -0.02em; }
-
-        /* Profile */
-        .profile { padding-top: 8rem; }
-        .profile h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 1rem; }
-        .profile p { font-size: 1.2rem; color: var(--secondary); max-width: 500px; }
-
-        /* Projects */
-        .project-grid { display: grid; gap: 2rem; }
-        .project-card { 
-            padding: 1.5rem; border: 1px solid var(--border); border-radius: 8px;
-            transition: transform 0.2s ease;
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -1px;
         }
-        .project-card:hover { transform: translateY(-4px); border-color: var(--accent); }
-        .project-card h3 { margin-bottom: 0.5rem; }
-        .project-card p { color: var(--secondary); font-size: 0.95rem; }
-        .tags { margin-top: 1rem; display: flex; gap: 0.5rem; }
-        .tag { font-size: 0.8rem; background: var(--border); padding: 0.2rem 0.6rem; border-radius: 4px; }
 
-        /* Experience */
-        .exp-item { margin-bottom: 2rem; }
-        .exp-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
-        .exp-date { color: var(--secondary); font-size: 0.9rem; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
 
-        /* Contact */
-        .contact-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-        .contact-item { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--text); }
-        .contact-item:hover { color: var(--accent); }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-        footer { padding: 3rem 0; text-align: center; color: var(--secondary); font-size: 0.8rem; }
+        /* Common Section Style */
+        section {
+            padding: 100px 10% 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* Hero (Profile) Section */
+        #profile {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            min-height: 80vh;
+        }
+
+        .profile-image {
+            width: 350px;
+            height: 450px;
+            background-color: var(--gray-light);
+            border-radius: 20px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-content p {
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            max-width: 500px;
+        }
+
+        /* Project Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            group: hover;
+        }
+
+        .project-thumb {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background-color: var(--gray-light);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-card:hover .project-thumb {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        /* Experience Section */
+        .exp-item {
+            display: flex;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--gray-light);
+            padding-bottom: 2rem;
+        }
+
+        .exp-date {
+            width: 200px;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        .exp-detail h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            padding-bottom: 150px;
+        }
+
+        .contact-link {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 3px solid var(--accent);
+            transition: var(--transition);
+        }
+
+        .contact-link:hover {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 10%;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #profile { flex-direction: column; text-align: center; gap: 2rem; }
+            .profile-image { width: 250px; height: 300px; }
+            .profile-content h1 { font-size: 2.5rem; }
+            .exp-item { flex-direction: column; }
+            .exp-date { margin-bottom: 0.5rem; }
+            .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="container">
-            <div style="font-weight: 800; font-size: 1.2rem;">PORTFOLIO.</div>
-            <div>
-                <a href="#profile">Profile</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#contact">Contact</a>
-            </div>
+        <div class="logo">MYFOLIO.</div>
+        <div class="nav-links">
+            <a href="#profile">Profile</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <main class="container">
-        <section id="profile" class="profile" style="border:none">
-            <h1>안녕하세요,<br>김코딩입니다.</h1>
-            <p>사용자 중심의 가치를 더하는 프론트엔드 개발자입니다. 심플함 속에 강력한 기능을 담는 것을 좋아합니다.</p>
-        </section>
+    <section id="profile">
+        <div class="profile-image">
+            <img src="https://via.placeholder.com/350x450" alt="Profile Image">
+        </div>
+        <div class="profile-content">
+            <h1>Hello,<br>I'm a Designer.</h1>
+            <p>복잡함을 덜어내고 본질에 집중하는 미니멀리스트 개발자/디자이너입니다. 사용자에게 편안한 경험을 제공하는 것을 목표로 합니다.</p>
+        </div>
+    </section>
 
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Project Title One</h3>
-                    <p>프로젝트에 대한 간략한 설명입니다. 어떤 기술을 사용했고 어떤 문제를 해결했는지 적어주세요.</p>
-                    <div class="tags">
-                        <span class="tag">React</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Vercel</span>
-                    </div>
+    <section id="projects">
+        <h2>Selected Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-thumb">
+                    <img src="https://via.placeholder.com/600x400" alt="Project 1">
                 </div>
-                <div class="project-card">
-                    <h3>Project Title Two</h3>
-                    <p>두 번째 프로젝트의 핵심 가치와 성과를 중심으로 기술합니다.</p>
-                    <div class="tags">
-                        <span class="tag">Next.js</span>
-                        <span class="tag">Tailwind</span>
-                    </div>
-                </div>
+                <h3>Brand Identity Design</h3>
+                <p>Minimalist branding for a tech startup.</p>
             </div>
-        </section>
+            <div class="project-card">
+                <div class="project-thumb">
+                    <img src="https://via.placeholder.com/600x400" alt="Project 2">
+                </div>
+                <h3>Mobile App UI/UX</h3>
+                <p>Clean interface for a productivity tool.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-thumb">
+                    <img src="https://via.placeholder.com/600x400" alt="Project 3">
+                </div>
+                <h3>Web Platform</h3>
+                <p>E-commerce experience with modern aesthetic.</p>
+            </div>
+        </div>
+    </section>
 
-        <section id="experience">
-            <h2>Experience</h2>
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="exp-list">
             <div class="exp-item">
-                <div class="exp-header">
-                    <strong>멋진 스타트업</strong>
-                    <span class="exp-date">2022.01 - Present</span>
+                <div class="exp-date">2023 — Present</div>
+                <div class="exp-detail">
+                    <h3>Senior Product Designer</h3>
+                    <p>Creative Studio A. Lead designer for various digital products.</p>
                 </div>
-                <p style="color: var(--secondary);">프론트엔드 개발자 / 메인 서비스 UI/UX 개선 및 성능 최적화 담당</p>
             </div>
             <div class="exp-item">
-                <div class="exp-header">
-                    <strong>대학교</strong>
-                    <span class="exp-date">2018.03 - 2022.02</span>
+                <div class="exp-date">2021 — 2023</div>
+                <div class="exp-detail">
+                    <h3>UI/UX Designer</h3>
+                    <p>Tech Company B. Focused on design systems and accessibility.</p>
                 </div>
-                <p style="color: var(--secondary);">컴퓨터공학 전공 학사 졸업</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" style="border:none">
-            <h2>Get In Touch</h2>
-            <div class="contact-links">
-                <a href="mailto:your-email@example.com" class="contact-item">
-                    <i data-lucide="mail" size="18"></i> your-email@example.com
-                </a>
-                <a href="https://github.com/your-id" class="contact-item">
-                    <i data-lucide="github" size="18"></i> GitHub
-                </a>
-                <a href="#" class="contact-item">
-                    <i data-lucide="linkedin" size="18"></i> LinkedIn
-                </a>
-            </div>
-        </section>
-    </main>
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <p style="margin-bottom: 2rem; color: var(--text-sub);">새로운 프로젝트나 협업 제안은 언제나 환영입니다.</p>
+        <a href="mailto:yourname@email.com" class="contact-link">hi@yourdomain.com</a>
+    </section>
 
     <footer>
-        <div class="container">
-            © 2024 Your Name. Built with Love.
-        </div>
+        <p>&copy; 2024 Your Name. Built with Passion.</p>
     </footer>
 
-    <script>
-        // 아이콘 로드
-        lucide.createIcons();
-    </script>
 </body>
 </html>
