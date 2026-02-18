@@ -91,7 +91,295 @@
             border-radius: 20px;
             overflow: hidden;
             flex-shrink: 0;
-        }
+      <!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background: #ffffff;
+      color: #111;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #eee;
+      z-index: 1000;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    nav h1 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    nav ul li:hover {
+      opacity: 0.6;
+      transition: 0.3s;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 120px 20px;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    /* PROFILE */
+    .profile {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 420px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .profile-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .profile-text h3 {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .profile-text p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background: #f5f5f5;
+    }
+
+    .project-content {
+      padding: 20px;
+    }
+
+    .project-content h4 {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .project-content p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* RESUME */
+    .resume-item {
+      margin-bottom: 40px;
+    }
+
+    .resume-item h4 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .resume-item span {
+      font-size: 14px;
+      color: #888;
+    }
+
+    /* CONTACT */
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 500px;
+    }
+
+    input, textarea {
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    button {
+      padding: 14px;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+      color: #888;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 768px) {
+      .profile {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <h1>Your Name</h1>
+    <ul>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="profile">
+  <h2>Profile</h2>
+  <div class="profile">
+    <div class="profile-image">
+      <img src="images/스크린샷 2026-02-12 183928.png" alt="프로필 사진">
+    </div>
+    <div class="profile-text">
+      <h3>안녕하세요, 홍길동입니다.</h3>
+      <p>
+        미니멀하고 모던한 디자인을 추구합니다.
+        사용자 경험과 디테일을 중요하게 생각합니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-image"></div>
+      <div class="project-content">
+        <h4>Project Title</h4>
+        <p>프로젝트 설명을 작성하세요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <h2>Resume</h2>
+  <div class="resume-item">
+    <h4>회사명</h4>
+    <span>2022 - Present</span>
+    <p>주요 업무 및 성과</p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <form>
+    <input type="text" placeholder="이름" required />
+    <input type="email" placeholder="이메일" required />
+    <textarea placeholder="메시지를 입력하세요" required></textarea>
+    <button type="submit">보내기</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 Your Name. All rights reserved.
+</footer>
+
+</body>
+</html>
+  }
 
         .profile-image img {
             width: 100%;
